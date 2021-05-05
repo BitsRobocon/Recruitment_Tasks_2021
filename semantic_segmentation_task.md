@@ -37,6 +37,8 @@ $ docker run -it -e DISPLAY=$DISPLAY \
 #### Change directory to workspace
 **Note that `$` is indicating your normal terminal, whereas `#` is being used when commands are run on a docker container.**
 ```
+# echo "export SVGA_VGPU10=0" >> ~/.profile
+# export SVGA_VGPU10=0
 # cd /home/robocon/catkin_ws
 # echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 # source ~/.bashrc
@@ -54,7 +56,7 @@ The output should be exactly as below:
 
 ![glxgears.gif](docs/1_glxgears.gif)
 
-If you are able to get the above output, awesome :awesome:.
+If you are able to get the above output, awesome :awesome: .
 Your setup is done, so jump to [trying out turtlebot 3](#playing-with-turtlebot3).
 
 ## 2. Setup on Ubuntu 18.04 OS
