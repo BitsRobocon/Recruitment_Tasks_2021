@@ -56,7 +56,7 @@ The output should be exactly as below:
 
 ![glxgears.gif](docs/1_glxgears.gif)
 
-If you are able to get the above output, awesome :awesome: .
+If you are able to get the above output, awesome :sunglasses:.
 Your setup is done, so jump to [trying out turtlebot 3](#playing-with-turtlebot3).
 
 ## 2. Setup on Ubuntu 18.04 OS
