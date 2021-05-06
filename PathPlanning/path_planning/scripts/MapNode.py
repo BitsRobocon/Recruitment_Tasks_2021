@@ -54,10 +54,10 @@ class MapNode:
         detail = map_detail()
         detail.width = self.map.width
         detail.height = self.map.height
-        detail.end_x = self.map.end[0]
-        detail.end_y = self.map.end[1]
-        detail.current_x = self.current[0]
-        detail.current_y = self.current[1]
+        detail.end_x = self.map.end[1]
+        detail.end_y = self.map.end[0]
+        detail.current_x = self.current[1]
+        detail.current_y = self.current[0]
         detail.current_value = self.map.array[self.current[0]][self.current[1]]
         self.walls_publisher.publish(detail)
 
