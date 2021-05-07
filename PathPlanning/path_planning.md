@@ -2,15 +2,60 @@
 
 This task involves making a path planning algorithm as a part of a ROS Node. You will be need to learn the basics of ROS, and some basic path planning algorithms to do this task.
 
-### Install and Learn basics of ROS
+## Install and Learn basics of ROS
 
-todo
+You can install ROS using the following ways:-
 
-### Install tkinter
+- Setup ROS melodic on Ubuntu 18.04 OS
+- Setup on a VM on windows
+- Setup ros using a docker image
+
+### 1) Setup ROS Melodic on Ubuntu 18.04 OS
+
+#### Install ROS
+```bash
+$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+$ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+$ sudo apt update
+$ sudo apt install ros-melodic-desktop-full
+$ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+$ source ~/.bashrc
+```
+
+#### Setup the workspace
+```bash
+$ mkdir -p ~/robocon/catkin_ws/src
+$ cd ~/robocon/catkin_ws
+$ catkin_make
+$ source devel/setup.bash
+## Note you will have to source the workspace everytime before using it
+```
+Install other necessary packages
+```bash
+$ sudo apt install python3-catkin-tools python3-osrf-pycommon 
+```
+
+### 2) Setup on a VM (Skip if already done step 1)
+
+Use Ubuntu 18.04 on VM and same steps as given in Step 1.
+
+### 3) Setup ros using a docker image
+
+TODO:
+
+### 4) Get Started with basic of ROS
+
+Follow the tutorials given [here](http://wiki.ros.org/ROS/Tutorials)
+
+You should complete the beginner level tutorials, and develop a good understanding of what nodes, topics are and how they communicate.
+
+Don't get overwhelmed by the number of tutorials, they are simple tutorials only and won't take long to finish.
+
+## Install tkinter
 
 Follow this tutorial and you should be set - https://riptutorial.com/tkinter/example/3206/installation-or-setup
 
-### Setup the provided package
+## Setup the provided package
 
 Assuming you have a terminal window running with roscore command. To do this source your ros installation and run roscore.
 
@@ -39,11 +84,11 @@ If everything has been installed properly, you'll see the following tkinter wind
 
 Here, the blue box represents the cell currently occupied by the bot and the green box represents the final position. The walls in the map are not shown yet, since the robot hasn't been to those cells and hence doesn't know about them.
 
-### Your Evaluative Task
+## Your Evaluative Task
 
 So the package provided has the following folders -
 
-#### maps
+### maps
 
 This folder contains the maps you can work on. Currently one map (map1.txt) is provided for you to test your algorithm on, but you are free to make more.
 
@@ -54,15 +99,15 @@ start_coord_x start_coord_y end_coord_x end_coord_y
 < array representing map walls >
 ```
 
-#### msg
+### msg
 
 This folder contains the custom msgs which are to be used for communication among the ROS nodes provided. You don't have to edit/modify this folder's contents
 
-#### scripts
+### scripts
 
 This folder contains the various scripts in which the ROS nodes are running.
 
- - ###### MapClass.py
+ - ##### MapClass.py
 
     This file contains the data structure used for the map of the maze.
 
@@ -70,7 +115,7 @@ This folder contains the various scripts in which the ROS nodes are running.
 
     Basically a square with say top and bottom walls only will have value = 8(top) + 1(bottom) = 9
 
-- ###### MapNode.py
+- ##### MapNode.py
 
    This file initializes the ROS node and provides a graphic interface using the map.
 
@@ -80,7 +125,7 @@ This folder contains the various scripts in which the ROS nodes are running.
 
    The publisher publishes to the /walls topic and publishes data about the walls on the current position of the robot. This is done to emulate the real world maze, where the robot can only see the walls of the position it is on currently.
 
-- ###### PlannerNode.py
+- ##### PlannerNode.py
 
   This file is where you'll be doing all of your work. You have been provided with template code. You need to make and implement an algorithm, which will decide the direction of movement of the robot and publish it to the /direction topic, whenever it receives information about the walls of the current cell from the /walls topic.
 
