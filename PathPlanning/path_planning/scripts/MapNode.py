@@ -23,6 +23,7 @@ class MapNode:
         self.map = Map(dimensions[0], dimensions[1], (coords[0],coords[1]), (coords[2],coords[3]), array)
         self.current = self.map.start
         self.walls = Map(self.map.width, self.map.height, self.map.start, self.map.end)
+        self.walls.array[self.current[0]][self.current[1]] = self.map.array[self.current[0]][self.current[1]]
         self.print_root = tkinter.Tk()
         self.print_canvas = tkinter.Canvas(self.print_root, bg="white", height=(100+self.walls.height*50), width=(100+self.walls.width*50))
         self.print_canvas.pack()
@@ -54,10 +55,10 @@ class MapNode:
         detail = map_detail()
         detail.width = self.map.width
         detail.height = self.map.height
-        detail.end_x = self.map.end[1]
-        detail.end_y = self.map.end[0]
-        detail.current_x = self.current[1]
-        detail.current_y = self.current[0]
+        detail.end_x = self.map.end[0]
+        detail.end_y = self.map.end[1]
+        detail.current_x = self.current[0]
+        detail.current_y = self.current[1]
         detail.current_value = self.map.array[self.current[0]][self.current[1]]
         self.walls_publisher.publish(detail)
 
