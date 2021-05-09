@@ -31,7 +31,7 @@ $ docker run -it -e DISPLAY=$DISPLAY \
       --net=host --privileged \
       -v /tmp/.X11-unix:/tmp/.X11-unix \
       -v /home/robocon:/home/robocon \
-      robocon bash
+      twinkletwinkle/robocon bash
 ```
 
 #### Change directory to workspace
@@ -113,7 +113,7 @@ Your setup is done, so jump to [trying out turtlebot 3](#playing-with-turtlebot3
 You can setup as step 2, ros and gazebo are pre-installed.
 
 ## 4. Setup on VM
-Use Ubuntu 18.04 on VM and same steps as Step 2.
+Use Ubuntu 18.04 on VM and and then follow same steps as in Step 1.
 
 ## Playing with TurtleBot3
 You can choose any model of TurtleBot3 from `burger`, `waffle`, `waffle_pi`. Here we are using burger.
