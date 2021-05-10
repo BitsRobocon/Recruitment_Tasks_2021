@@ -32,7 +32,7 @@ $ source devel/setup.bash
 ```
 Install other necessary packages
 ```bash
-$ sudo apt install python3-catkin-tools python3-osrf-pycommon 
+$ sudo apt install python3-catkin-tools python3-osrf-pycommon
 ```
 
 ### 2) Setup on a VM (Skip if already done step 1)
@@ -41,9 +41,9 @@ Use Ubuntu 18.04 on VM and same steps as given in Step 1.
 
 ### 3) Setup ros using a docker image
 
-TODO:
+To setup ros on using a docker image, you need to follow the instructions [here](http://wiki.ros.org/docker/Tutorials/Docker). Note that the image you need to install is ros:melodic-ros-base
 
-### 4) Get Started with basic of ROS
+## Get Started with basic of ROS
 
 Follow the tutorials given [here](http://wiki.ros.org/ROS/Tutorials)
 
@@ -69,7 +69,7 @@ catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
 After having done that, source the workspace
 
 ```bash
-source devel/setup.py
+source devel/setup.bash
 ```
 
 Then, run the following command to make sure everything is working fine
