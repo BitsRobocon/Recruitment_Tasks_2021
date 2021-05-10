@@ -1,10 +1,10 @@
 # `TASK: Hands on with Gazebo and semantic segmentation`
 
 You can achieve the required setup for this tutorial cum recruitment task in 4 ways:-
-1. Use the **docker** image that we have provided at [docker hub](https://hub.docker.com/r/twinkletwinkle/robocon) - *ideal if no dedicated graphic driver*.
-2. Use Ubuntu 18.04 operating system - *ideal to obtain best performance*.
+1. [Use the docker image that we have provided at docker hub](#1-setting-up-the-workspace-on-a-docker-container) - *ideal if no dedicated graphic driver*.
+2. [Use Ubuntu 18.04 operating system](#2-setup-on-ubuntu-1804-os) - *ideal to obtain best performance*.
 3. Use [TheConstructSim](https://www.theconstructsim.com/) (an online service which provides full support to ROS, Gazebo and other required tools) - *ideal if you have fast internet*.
-4. Use a Virtual machine.
+4. [Use a Virtual machine](#4-setup-on-vm).
 
 ## 1. Setting up the workspace on a Docker Container:
 #### Install docker for your operating system:
@@ -15,17 +15,20 @@ $ sudo apt install docker.io
 $ sudo systemctl start docker
 $ sudo systemctl enable docker
 # To verify if docker is active (running), type below command
-sudo systemctl status docker
+$ sudo systemctl status docker  # To exit press `q`
 ```
 * For other operating systems like `Mac OS`, `Windows 10` or older, other `Linux` distros, please follow [docker official docs](https://docs.docker.com/get-docker/).
 
 #### Setup the container using robocon image
 ```bash
 # Open your terminal
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+$ newgrp docker
 # Pull the robocon image by using below command
 $ docker pull twinkletwinkle/robocon
 # Grant permission for GUI apps to access monitor from docker container.
-$ xhost local:root # This command is overwritten upon OS reboot, so needs to be run again post reboot
+$ xhost local:root
 # Create the container
 $ docker run -it -e DISPLAY=$DISPLAY \
       --net=host --privileged \
@@ -33,12 +36,15 @@ $ docker run -it -e DISPLAY=$DISPLAY \
       -v /home/robocon:/home/robocon \
       twinkletwinkle/robocon bash
 ```
+**NOTE**: The command `xhost local:root` is overwritten upon OS reboot, so needs to be run again post reboot.
+
 
 #### Change directory to workspace
 **Note that `$` is indicating your normal terminal, whereas `#` is being used when commands are run on a docker container.**
 ```
 # echo "export SVGA_VGPU10=0" >> ~/.profile
 # export SVGA_VGPU10=0
+# mv /home/catkin_ws /home/robocon/
 # cd /home/robocon/catkin_ws
 # echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 # source ~/.bashrc
@@ -110,10 +116,10 @@ $ catkin build --workspace .
 Your setup is done, so jump to [trying out turtlebot 3](#playing-with-turtlebot3).
 
 ## 3. Setup on TheConstructSim
-You can setup as step 2, ros and gazebo are pre-installed.
+You can setup as in [step 2](#2-setup-on-ubuntu-1804-os), ros and gazebo are pre-installed.
 
 ## 4. Setup on VM
-Use Ubuntu 18.04 on VM and and then follow same steps as in Step 1.
+Use Ubuntu 18.04 on VM and and then follow same steps as in [Step 1](#1-setting-up-the-workspace-on-a-docker-container).
 
 ## Playing with TurtleBot3
 You can choose any model of TurtleBot3 from `burger`, `waffle`, `waffle_pi`. Here we are using burger.
@@ -210,7 +216,7 @@ A **gazebo sim** and **RViz** should open up displaying the model and the point 
 ![velodyne](docs/6_velodyne_sim.png)
 
 `EVAL (Final)`:
-1) Your final task is to add one of the velodyne lidar model (from the package velodyne_simulator) to the turtlebot3 model. You can learn how to do so from [Gazebo official docs](gazebosim.org/tutorials?tut=add_laser).
+1) Your final task is to add one of the velodyne lidar model (from the package velodyne_simulator) to the turtlebot3 model. You can learn how to do so from [Gazebo official docs](gazebosim.org/tutorials?tut=add_laser). You might also need to transform the point cloud from `velodyne` frame to `base_link` frame. For more details you can refer the ros package and its tutorials [tf2](http://wiki.ros.org/tf2).
 2) Change the input topic name in the package linefit_ground_segmentation to get `/velodyne_points` as we did it [above](#).
 3) Navigate the turtlebot3 (using teleop as done above) around one of the worlds below:-
 * **World 1: Autorace world**
