@@ -121,6 +121,9 @@ You can setup as in [step 2](#2-setup-on-ubuntu-1804-os), ros and gazebo are pre
 ## 4. Setup on VM
 Use Ubuntu 18.04 on VM and and then follow same steps as in [Step 1](#1-setting-up-the-workspace-on-a-docker-container).
 
+## Getting Started with ROS
+For this task, we do not need to go deep into ROS, and a basic understanding is sufficient. You can get started by reading [this](https://bitsrobocon.github.io/BlogArticles/IntroducingROS-LinuxofRobotics) blog.
+
 ## Playing with TurtleBot3
 You can choose any model of TurtleBot3 from `burger`, `waffle`, `waffle_pi`. Here we are using burger.
 
