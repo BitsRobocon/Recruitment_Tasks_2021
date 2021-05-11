@@ -47,12 +47,15 @@ $ docker run -it -e DISPLAY=$DISPLAY \
 # mv /home/catkin_ws /home/robocon/
 # cd /home/robocon/catkin_ws
 # echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+# echo "cd /home/robocon/catkin_ws" >> ~/.bashrc
+# echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
+# echo "source devel/setup.bash" >> ~/.bashrc
 # source ~/.bashrc
 # ls
 ```
 **Output**: `build  devel  logs  src`
 
-**Note**: For every new bash, source setup.bash (`source devel/setup.bash`)
+**Note**: For every new bash, it automatically sources setup.bash, but just to be double sure you can source setup.bash manually (`source devel/setup.bash`)
 
 #### Verify that GUI apps are running correctly in the container
 ```
