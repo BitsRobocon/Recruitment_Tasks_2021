@@ -45,7 +45,7 @@ To setup ros on using a docker image, you need to follow the instructions [here]
 
 ## Get Started with basic of ROS
 
-Follow the tutorials given [here](http://wiki.ros.org/ROS/Tutorials)
+Follow the tutorials given [here](http://wiki.ros.org/ROS/Tutorials). You can also read [this](https://bitsrobocon.github.io/BlogArticles/IntroducingROS-LinuxofRobotics) blog for an introduction to ROS.
 
 You should complete the beginner level tutorials, and develop a good understanding of what nodes, topics are and how they communicate.
 
