@@ -45,11 +45,14 @@ To setup ros on using a docker image, you need to follow the instructions [here]
 
 ## Get Started with basic of ROS
 
-Follow the tutorials given [here](http://wiki.ros.org/ROS/Tutorials)
+Follow the tutorials given [here](http://wiki.ros.org/ROS/Tutorials).
 
 You should complete the beginner level tutorials, and develop a good understanding of what nodes, topics are and how they communicate.
 
 Don't get overwhelmed by the number of tutorials, they are simple tutorials only and won't take long to finish.
+
+You can also read [this](https://bitsrobocon.github.io/BlogArticles/IntroducingROS-LinuxofRobotics) blog for an introduction to ROS. Further, [this](http://library.lol/main/CF7BD00A4C4E509E495911CE3072C06F) book provides and excellent explanation for most of the concepts used here. For this task, you do not need to read everything from it, but a tip is to search for the required stuff in the index.
+
 
 ## Install tkinter
 
