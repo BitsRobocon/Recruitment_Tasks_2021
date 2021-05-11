@@ -30,10 +30,7 @@ $ catkin_make
 $ source devel/setup.bash
 ## Note you will have to source the workspace everytime before using it
 ```
-Install other necessary packages
-```bash
-$ sudo apt install python3-catkin-tools python3-osrf-pycommon
-```
+
 
 ### 2) Setup on a VM (Skip if already done step 1)
 
