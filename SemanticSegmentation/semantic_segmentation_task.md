@@ -238,7 +238,7 @@ The below GIF summarizes this tutorial:
 
 `EVAL 2`: You need to save the map that has been generated in rviz, by opening a docker bash 4 and using below command.
 ```
-# apt-get install map_server
+# apt-get install ros-melodic-map-server
 # rosrun map_server map_saver -f ~/map
 ```
 ![map.png](docs/4_turtlebot_map.png)
