@@ -20,6 +20,7 @@ $ sudo systemctl status docker  # To exit press `q`
 * For other operating systems like `Mac OS`, `Windows 10` or older, other `Linux` distros, please follow [docker official docs](https://docs.docker.com/get-docker/).
 
 #### Setup the container using robocon image
+* `Ubuntu 18.04`
 ```bash
 # Open your terminal
 $ sudo groupadd docker
@@ -38,6 +39,66 @@ $ docker run -it -e DISPLAY=$DISPLAY \
 ```
 **NOTE**: The command `xhost local:root` is overwritten upon OS reboot, so needs to be run again post reboot.
 
+
+* `Docker on Windows`
+```bash
+# Open Powershell with Administrator privilege (because we need Admin privileges to install the new softwares)
+install chocolatey from https://chocolatey.org/install
+
+# install vcxsrv
+> choco install vcxsrv
+
+# Once vcxsrv is installed, you will see "XLaunch" application in start menu
+# Download config1.xlaunch from the repo and run it. This will start the display server on your machine with desired settings.
+
+## The next commands don't require Powershell with admin privileges. So you can now open Powershell normally.
+
+# Copy your *IPv4 Address* of the format 192.168.xxx.xxx
+> ipconfig
+
+# Set DISPLAY variable to the obtained IPv4 Address (Replace xxx.xxx by your address)
+> set-variable -name DISPLAY -value 192.168.xxx.xxx:0.0 
+
+# Pull the robocon image by using below command
+> docker pull twinkletwinkle/robocon
+
+# Make and run container from the pulled image
+>  docker run -it -e DISPLAY=$DISPLAY --net=host --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/robocon:/home/robocon twinkletwinkle/robocon bash
+```
+**NOTE**: 
+1. The command `set-variable -name DISPLAY -value 192.168.xxx.xxx:0.0 ` should be run in every new window of Powershell that you open.
+2. The IPv4 address changes upon reboot. So be sure to get the new ip every time you reboot. 
+
+
+### To open same container the next time you start working on tasks
+* `Docker on Ubuntu (VM or Installed directly on Machine)`
+```bash
+# Grant permission for GUI apps to access monitor from docker container.
+$ xhost local:root
+
+# Get container name (It was already made from image the first time you ran it)
+> docker ps -a
+
+# Start the same container (if not already running)
+> docker start <name-of-container>
+> docker exec -it -e DISPLAY=$DISPLAY  <name of container> bash
+```
+
+* `Docker on Windows`
+```bash
+# Copy your *IPv4 Address* of the format 192.168.xxx.xxx
+> ipconfig
+
+# Set display variable
+> set-variable -name DISPLAY -value 192.168.xxx.xxx:0.0
+
+# Get container name (It was already made from image the first time you ran it)
+> docker ps -a
+
+# Start the same container (if not already running)
+> docker start <name-of-container>
+> docker exec -it -e DISPLAY=$DISPLAY  <name of container> bash
+```
 
 #### Change directory to workspace
 **Note that `$` is indicating your normal terminal, whereas `#` is being used when commands are run on a docker container.**
