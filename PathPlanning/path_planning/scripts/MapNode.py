@@ -35,17 +35,21 @@ class MapNode:
     def direction_callback(self, msg):
         print(msg)
         if msg.direction == 'up':
-            if self.current[1] > 1:
-                self.current = (self.current[0], self.current[1]-1)
+            if not self.map.check_top_wall(self.current):
+                if self.current[0] >= 1:
+                    self.current = (self.current[0]-1, self.current[1])
         elif msg.direction == 'left':
-            if self.current[0] > 1:
-                self.current = (self.current[0]-1, self.current[1])
+            if not self.map.check_left_wall(self.current):
+                if self.current[1] >= 1:
+                    self.current = (self.current[0], self.current[1]-1)
         elif msg.direction == 'right':
-            if self.current[0] < self.map.width-1:
-                self.current = (self.current[0], self.current[1]+1)
+            if not self.map.check_right_wall(self.current):
+                if self.current[1] < self.map.width-1:
+                    self.current = (self.current[0], self.current[1]+1)
         elif msg.direction == 'down':
-            if self.current[0] < self.map.height-1:
-                self.current = (self.current[0]+1, self.current[1])
+            if not self.map.check_bottom_wall(self.current):
+                if self.current[0] < self.map.height-1:
+                    self.current = (self.current[0]+1, self.current[1])
 
         if self.current == self.map.end:
             print('Goal reached')
