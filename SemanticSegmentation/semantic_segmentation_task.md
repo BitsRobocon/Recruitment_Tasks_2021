@@ -283,7 +283,7 @@ A **gazebo sim** and **RViz** should open up displaying the model and the point 
 ![velodyne](docs/6_velodyne_sim.png)
 
 `EVAL (Final)`:
-1) Your final task is to add one of the velodyne lidar model (from the package velodyne_simulator) to the turtlebot3 model. You can learn how to do so from [Gazebo official docs](gazebosim.org/tutorials?tut=add_laser). You might also need to transform the point cloud from `velodyne` frame to `base_link` frame. For more details you can refer the ros package and its tutorials [tf2](http://wiki.ros.org/tf2).
+1) Your final task is to add one of the velodyne lidar model (from the package velodyne_simulator) to the turtlebot3 model. You can learn how to do so from [Gazebo official docs](http://www.gazebosim.org/tutorials?tut=add_laser). You might also need to transform the point cloud from `velodyne` frame to `base_link` frame. For more details you can refer the ros package and its tutorials [tf2](http://wiki.ros.org/tf2).
 2) Change the input topic name in the package linefit_ground_segmentation to get `/velodyne_points` as we did it [above](#).
 3) Navigate the turtlebot3 (using teleop as done above) around one of the worlds below:-
 * **World 1: Autorace world**
