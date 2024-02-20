@@ -3,8 +3,9 @@
 You can achieve the required setup for this tutorial cum recruitment task in 4 ways:-
 1. [Use the docker image that we have provided at docker hub](#1-setting-up-the-workspace-on-a-docker-container) - *ideal if no dedicated graphic driver*.
 2. [Use Ubuntu 18.04 operating system](#2-setup-on-ubuntu-1804-os) - *ideal to obtain best performance*.
-3. Use [TheConstructSim](https://www.theconstructsim.com/) (an online service which provides full support to ROS, Gazebo and other required tools) - *ideal if you have fast internet*.
-4. [Use a Virtual machine](#4-setup-on-vm).
+3. [Use Ubuntu 22.04 operating systme (updated for ROS2)] 
+4. Use [TheConstructSim](https://www.theconstructsim.com/) (an online service which provides full support to ROS, Gazebo and other required tools) - *ideal if you have fast internet*.
+5. [Use a Virtual machine](#4-setup-on-vm).
 
 ## 1. Setting up the workspace on a Docker Container:
 #### Install docker for your operating system:
